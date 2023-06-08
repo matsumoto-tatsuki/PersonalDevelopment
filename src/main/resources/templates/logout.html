@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--<meta http-equiv="Refresh" content="2;URL=/user-login">-->
+<title>ログアウト</title>
+<link href="/css/commons.css" rel="stylesheet">
+  <style>
+  #timer {
+    font-size:45vh;
+    text-align: center;
+    color: red;
+    
+  }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="site_logo">売上管理システム</h1>
+  </div>
+  <div class="center">
+    <p>
+      ログアウトしました。<br> ※２秒後にTOP画面に遷移します。
+    </p>
+  </div>
+  <div id="timer"></div>
+  <script>
+      let timerElement = document.getElementById("timer");
+      let sec = 3;
+
+      let timerId = setInterval(updateTimer, 1000); // 1秒ごとに更新
+
+      function updateTimer() {
+        sec--;
+        // タイマーを表示
+        timerElement.textContent = sec;
+
+        if (sec === 0) {
+          clearTimeout(timerId);
+          window.location.href = "/user-login"; // 移動先のURLを指定
+        }
+      }
+  </script>
+</body>
+</html>

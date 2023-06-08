@@ -1,0 +1,27 @@
+.text-center{
+    text-align: center;
+}
+
+.big-button{
+    padding: 10%;
+    background-color: aqua;
+}
+
+div .line{
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.table-container {
+  max-height: 230px; /* スクロールバーが表示される高さを指定 */
+  overflow: auto; /* スクロールバーを表示 */
+}
+.table-container thead th {
+  position: sticky;
+  top: 0;
+}

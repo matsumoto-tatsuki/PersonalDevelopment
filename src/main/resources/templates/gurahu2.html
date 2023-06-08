@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>グラフ</title>
+  <link href="/css/commons.css" rel="stylesheet">
+  <link href="/css/commons2.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    #lineChart {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #canvas-container {
+      width: 400px;
+      height: 300px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+<th:block th:insert="/common/header"></th:block>
+<h2 class="text-center">上半期の業績</h2>
+<div id="lineChart">
+  <canvas id="myChart" width="700" height="500"></canvas>
+</div>
+
+<h2 class="text-center">
+  <a href ="/home" style="color: black;">戻る</a>
+</h2>
+<script src="/js/gurahu2.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ホーム画面</title>
+    <link href="/css/commons.css" rel="stylesheet">
+    <link href="/css/commons2.css" rel="stylesheet">
+    <script src="/js/function.js"></script>
+</head>
+<body>
+
+  <th:block th:insert="/common/header"></th:block>
+
+    <p class="text-center">事業部選択:<select id="divisionSelect">
+        <option value="ALL">ALL</option>
+        <option value="第1事業部">第1事業部</option>
+        <option value="第2事業部">第2事業部</option>
+        <option value="第3事業部">第3事業部</option>
+        <option value="第5事業部">第5事業部</option>
+    </select></p>
+
+    <p class="text-center">移動単位:<select id="changeSelect">
+        <option value="Day">Day</option>
+        <option value="Week">Week</option>
+        <option value="Month">Month</option>
+        <option value="Year">Year</option>
+    </select></p>
+
+    <h2 class="text-center"><span id="date" th:text="${date}"></span> の利益： <span th:text="${returns}" id="returns"></span></h2>
+
+<p class="text-center"><button id="date-back"><</button>　<button id="date-add">></button>　<button id="now">NOW</button>　<button id="all">ALL</button></p>
+  <div class="table-container">
+    <table border="1" id="table">
+        <thead>
+        <tr>
+            <th>日付</th>
+            <th>担当事業部</th>
+            <th>費用</th>
+            <th>売上</th>
+            <th>利益</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sales : ${salesList}">
+            <td th:text="${sales.getDate}" ></td>
+            <td th:text="${sales.getDivisionName}"></td>
+            <td th:text="${sales.getCost}"></td>
+            <td th:text="${sales.getPrice}" ></td>
+            <td th:text="${sales.getPrice - sales.getCost}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+  </div>
+
+<h2 class="text-center"><a href ="/gurahuIndex" style="color: black;">グラフ化</a></h2>
+
+  <script>
+      //let timerElement = document.getElementById("timer");
+      let sec = 3;
+
+      let timerId = setInterval(updateTimer, 1000); // 1秒ごとに更新
+
+      function updateTimer() {
+        sec--;
+        // タイマーを表示
+        //timerElement.textContent = sec;
+
+        if (sec === 0) {
+          clearTimeout(timerId);
+          window.alert(`社長出勤です!!!`);
+          //window.location.href = "/user-login"; // 移動先のURLを指定
+        }
+      }
+  </script>
+<script src="/js/commons.js"></script>
+</body>
+</html>

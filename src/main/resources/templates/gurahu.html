@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>グラフ</title>
+    <link href="/css/commons.css" rel="stylesheet">
+    <link href="/css/commons2.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    #lineChart {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #canvas-container {
+      width: 400px;
+      height: 300px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    #pieAll {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<th:block th:insert="/common/header"></th:block>
+<h2 class="text-center">上半期の業績</h2>
+<div id="lineChart">
+    <canvas id="myChart" width="700" height="500"></canvas>
+</div>
+<br>
+<div id="pieAll">
+    <div>
+        <h3>第1事業部</h3>
+        <canvas id="pie1" width="200" height="200"></canvas>
+    </div>
+    <div>
+        <h3>第2事業部</h3>
+        <canvas id="pie2" width="200" height="200"></canvas>
+    </div>
+    <div>
+        <h3>第3事業部</h3>
+        <canvas id="pie3" width="200" height="200"></canvas>
+    </div>
+    <div>
+        <h3>第5事業部</h3>
+        <canvas id="pie5" width="200" height="200"></canvas>
+    </div>
+</div>
+
+<h2 class="text-center">
+    <a href ="/topPage" style="color: black;">戻る</a>
+</h2>
+
+<div>
+    <table id="table">
+
+    </table>
+</div>
+<script src="/js/gurahu.js"></script>
+</body>
+</html>
